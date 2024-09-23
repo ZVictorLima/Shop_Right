@@ -1,0 +1,14 @@
+{
+    "comment": "Planogram 4: Tall and Narrow (6 Shelves)",
+    "totalHeight": 180,
+    "totalWidth": 40,
+    
+    "shelfArray": [
+        [ {"name": "snack1",    "UPC": 900, "productAmmount": 3 } ],
+        [ {"name": "snack2",    "UPC": 901, "productAmmount": 3 } ],
+        [ {"name": "snack3",    "UPC": 902, "productAmmount": 2 } ],
+        [ {"name": "drink1",    "UPC": 903, "productAmmount": 4 } ],
+        [ {"name": "drink2",    "UPC": 904, "productAmmount": 4 } ],
+        [ {"name": "drink3",    "UPC": 905, "productAmmount": 5 } ]
+    ]
+}

@@ -1,0 +1,13 @@
+{
+    "comment" : "Planogram 2: Wide Planogram (5 Shelves, Wider Width)",
+    "totalHeight": 120,
+    "totalWidth": 80,
+    
+    "shelfArray": [
+        [ {"name": "chips1",    "UPC": 100, "productAmmount": 8 }, {"name": "chips2",    "UPC": 101, "productAmmount": 8 }, {"name": "chips3",    "UPC": 102, "productAmmount": 8} ],
+        [ {"name": "soda1",     "UPC": 200, "productAmmount": 6 }, {"name": "soda2",     "UPC": 201, "productAmmount": 6 }, {"name": "soda3",     "UPC": 202, "productAmmount": 6} ],
+        [ {"name": "snack1",    "UPC": 300, "productAmmount": 4 }, {"name": "snack2",    "UPC": 301, "productAmmount": 4 }, {"name": "snack3",    "UPC": 302, "productAmmount": 4} ],
+        [ {"name": "candy1",    "UPC": 400, "productAmmount": 10}, {"name": "candy2",    "UPC": 401, "productAmmount": 10}, {"name": "candy3",    "UPC": 402, "productAmmount": 10} ],
+        [ {"name": "water1",    "UPC": 500, "productAmmount": 6 }, {"name": "water2",    "UPC": 501, "productAmmount": 6 }, {"name": "water3",    "UPC": 502, "productAmmount": 6} ]
+    ]
+}
