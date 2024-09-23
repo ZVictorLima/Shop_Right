@@ -1,0 +1,84 @@
+{
+    "comment": "Planogram 1",
+    "totalHeight": 0,
+    "totalWidth": 0,
+    
+    "shelfArray": [
+        [ {"name": "juice1",    "UPC": 0,   "productAmmount": 4 }, {"name": "juice2",   "UPC": 1,   "productAmmount": 4} ],
+        [ {"name": "juice3",    "UPC": 2,   "productAmmount": 2 }, {"name": "juice4",   "UPC": 3,   "productAmmount": 5} ],
+        [ {"name": "example1",  "UPC": 9,   "productAmmount": 2 }, {"name": "example2", "UPC": 10,  "productAmmount": 2} ],
+        [ {"name": "example3",  "UPC": 11,  "productAmmount": 2 }, {"name": "example4", "UPC": 11,  "productAmmount": 5} ],
+        [ {"name": "example5",  "UPC": 20,  "productAmmount": 5 }, {"name": "example6", "UPC": 22,  "productAmmount": 7} ]
+    ]
+}
+
+{
+    "comment" : "Planogram 2: Wide Planogram (5 Shelves, Wider Width)",
+    "totalHeight": 120,
+    "totalWidth": 80,
+    
+    "shelfArray": [
+        [ {"name": "chips1",    "UPC": 100, "productAmmount": 8 }, {"name": "chips2",    "UPC": 101, "productAmmount": 8 }, {"name": "chips3",    "UPC": 102, "productAmmount": 8} ],
+        [ {"name": "soda1",     "UPC": 200, "productAmmount": 6 }, {"name": "soda2",     "UPC": 201, "productAmmount": 6 }, {"name": "soda3",     "UPC": 202, "productAmmount": 6} ],
+        [ {"name": "snack1",    "UPC": 300, "productAmmount": 4 }, {"name": "snack2",    "UPC": 301, "productAmmount": 4 }, {"name": "snack3",    "UPC": 302, "productAmmount": 4} ],
+        [ {"name": "candy1",    "UPC": 400, "productAmmount": 10}, {"name": "candy2",    "UPC": 401, "productAmmount": 10}, {"name": "candy3",    "UPC": 402, "productAmmount": 10} ],
+        [ {"name": "water1",    "UPC": 500, "productAmmount": 6 }, {"name": "water2",    "UPC": 501, "productAmmount": 6 }, {"name": "water3",    "UPC": 502, "productAmmount": 6} ]
+    ]
+}
+
+{
+    "comment": "Planogram 2: Wide Planogram (5 Shelves, Wider Width)",
+    "totalHeight": 120,
+    "totalWidth": 80,
+    
+    "shelfArray": [
+        [ {"name": "chips1",    "UPC": 100, "productAmmount": 8 }, {"name": "chips2",    "UPC": 101, "productAmmount": 8 }, {"name": "chips3",    "UPC": 102, "productAmmount": 8} ],
+        [ {"name": "soda1",     "UPC": 200, "productAmmount": 6 }, {"name": "soda2",     "UPC": 201, "productAmmount": 6 }, {"name": "soda3",     "UPC": 202, "productAmmount": 6} ],
+        [ {"name": "snack1",    "UPC": 300, "productAmmount": 4 }, {"name": "snack2",    "UPC": 301, "productAmmount": 4 }, {"name": "snack3",    "UPC": 302, "productAmmount": 4} ],
+        [ {"name": "candy1",    "UPC": 400, "productAmmount": 10}, {"name": "candy2",    "UPC": 401, "productAmmount": 10}, {"name": "candy3",    "UPC": 402, "productAmmount": 10} ],
+        [ {"name": "water1",    "UPC": 500, "productAmmount": 6 }, {"name": "water2",    "UPC": 501, "productAmmount": 6 }, {"name": "water3",    "UPC": 502, "productAmmount": 6} ]
+    ]
+
+}
+
+{
+    "comment": "Planogram 3: Narrow Planogram (3 Shelves, Less Width)",
+    "totalHeight": 90,
+    "totalWidth": 40,
+    
+    "shelfArray": [
+        [ {"name": "cereal1",   "UPC": 600, "productAmmount": 4 }, {"name": "cereal2",   "UPC": 601, "productAmmount": 4} ],
+        [ {"name": "milk1",     "UPC": 700, "productAmmount": 3 }, {"name": "milk2",     "UPC": 701, "productAmmount": 3} ],
+        [ {"name": "yogurt1",   "UPC": 800, "productAmmount": 5 }, {"name": "yogurt2",   "UPC": 801, "productAmmount": 5} ]
+    ]
+}
+
+{
+    "comment": "Planogram 4: Tall and Narrow (6 Shelves)",
+    "totalHeight": 180,
+    "totalWidth": 40,
+    
+    "shelfArray": [
+        [ {"name": "snack1",    "UPC": 900, "productAmmount": 3 } ],
+        [ {"name": "snack2",    "UPC": 901, "productAmmount": 3 } ],
+        [ {"name": "snack3",    "UPC": 902, "productAmmount": 2 } ],
+        [ {"name": "drink1",    "UPC": 903, "productAmmount": 4 } ],
+        [ {"name": "drink2",    "UPC": 904, "productAmmount": 4 } ],
+        [ {"name": "drink3",    "UPC": 905, "productAmmount": 5 } ]
+    ]
+}
+
+{
+    "comment": "Planogram 5: Medium Size Planogram (4 Shelves)",
+    "totalHeight": 100,
+    "totalWidth": 60,
+    
+    "shelfArray": [
+        [ {"name": "energyBar1", "UPC": 1100, "productAmmount": 3 }, {"name": "energyBar2", "UPC": 1101, "productAmmount": 3} ],
+        [ {"name": "proteinShake1", "UPC": 1200, "productAmmount": 5 }, {"name": "proteinShake2", "UPC": 1201, "productAmmount": 5} ],
+        [ {"name": "supplement1", "UPC": 1300, "productAmmount": 4 }, {"name": "supplement2", "UPC": 1301, "productAmmount": 4} ],
+        [ {"name": "water1", "UPC": 1400, "productAmmount": 6 }, {"name": "water2", "UPC": 1401, "productAmmount": 6} ]
+    ]
+}
+
+
