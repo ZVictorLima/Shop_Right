@@ -1,11 +1,49 @@
 {
-    "comment": "Planogram 3: Narrow Planogram (3 Shelves, Less Width)",
-    "totalHeight": 90,
-    "totalWidth": 40,
-    
-    "shelfArray": [
-        [ {"name": "cereal1",   "UPC": 600, "productAmmount": 4 }, {"name": "cereal2",   "UPC": 601, "productAmmount": 4} ],
-        [ {"name": "milk1",     "UPC": 700, "productAmmount": 3 }, {"name": "milk2",     "UPC": 701, "productAmmount": 3} ],
-        [ {"name": "yogurt1",   "UPC": 800, "productAmmount": 5 }, {"name": "yogurt2",   "UPC": 801, "productAmmount": 5} ]
+  "comment": "Planogram 3: Narrow Planogram (3 Shelves, Less Width)",
+  "totalHeight": 90,
+  "totalWidth": 40,
+  "shelfArray": [
+    [
+      {
+        "name": "cereal1",
+        "UPC": 600,
+        "productAmmount": 4,
+        "prodWidth": 0
+      },
+      {
+        "name": "cereal2",
+        "UPC": 601,
+        "productAmmount": 4,
+        "prodWidth": 0
+      }
+    ],
+    [
+      {
+        "name": "milk1",
+        "UPC": 700,
+        "productAmmount": 3,
+        "prodWidth": 0
+      },
+      {
+        "name": "milk2",
+        "UPC": 701,
+        "productAmmount": 3,
+        "prodWidth": 0
+      }
+    ],
+    [
+      {
+        "name": "yogurt1",
+        "UPC": 800,
+        "productAmmount": 5,
+        "prodWidth": 0
+      },
+      {
+        "name": "yogurt2",
+        "UPC": 801,
+        "productAmmount": 5,
+        "prodWidth": 0
+      }
     ]
+  ]
 }
