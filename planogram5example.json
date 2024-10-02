@@ -1,12 +1,63 @@
 {
-    "comment": "Planogram 5: Medium Size Planogram (4 Shelves)",
-    "totalHeight": 100,
-    "totalWidth": 60,
-    
-    "shelfArray": [
-        [ {"name": "energyBar1", "UPC": 1100, "productAmmount": 3 }, {"name": "energyBar2", "UPC": 1101, "productAmmount": 3} ],
-        [ {"name": "proteinShake1", "UPC": 1200, "productAmmount": 5 }, {"name": "proteinShake2", "UPC": 1201, "productAmmount": 5} ],
-        [ {"name": "supplement1", "UPC": 1300, "productAmmount": 4 }, {"name": "supplement2", "UPC": 1301, "productAmmount": 4} ],
-        [ {"name": "water1", "UPC": 1400, "productAmmount": 6 }, {"name": "water2", "UPC": 1401, "productAmmount": 6} ]
+  "comment": "Planogram 5: Medium Size Planogram (4 Shelves)",
+  "totalHeight": 100,
+  "totalWidth": 60,
+  "shelfArray": [
+    [
+      {
+        "name": "energyBar1",
+        "UPC": 1100,
+        "productAmmount": 3,
+        "prodWidth": 0
+      },
+      {
+        "name": "energyBar2",
+        "UPC": 1101,
+        "productAmmount": 3,
+        "prodWidth": 0
+      }
+    ],
+    [
+      {
+        "name": "proteinShake1",
+        "UPC": 1200,
+        "productAmmount": 5,
+        "prodWidth": 0
+      },
+      {
+        "name": "proteinShake2",
+        "UPC": 1201,
+        "productAmmount": 5,
+        "prodWidth": 0
+      }
+    ],
+    [
+      {
+        "name": "supplement1",
+        "UPC": 1300,
+        "productAmmount": 4,
+        "prodWidth": 0
+      },
+      {
+        "name": "supplement2",
+        "UPC": 1301,
+        "productAmmount": 4,
+        "prodWidth": 0
+      }
+    ],
+    [
+      {
+        "name": "water1",
+        "UPC": 1400,
+        "productAmmount": 6,
+        "prodWidth": 0
+      },
+      {
+        "name": "water2",
+        "UPC": 1401,
+        "productAmmount": 6,
+        "prodWidth": 0
+      }
     ]
+  ]
 }
