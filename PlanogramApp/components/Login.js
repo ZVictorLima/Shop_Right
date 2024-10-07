@@ -1,9 +1,9 @@
 import { StatusBar } from 'expo-status-bar';
 import { Button, Alert, Image, StyleSheet, Text, View, SafeAreaView, TextInput, TouchableOpacity } from 'react-native';
 
-const logoImg = require("./assets/logo.png")
-const usernameImg = require("./assets/username.png")
-const lockImg = require("./assets/lock.png")
+const logoImg = require("../assets/logo.png")
+const usernameImg = require("../assets/username.png")
+const lockImg = require("../assets/lock.png")
 
 export default function Login() {
   return (
