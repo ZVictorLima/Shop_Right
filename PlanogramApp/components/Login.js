@@ -128,22 +128,22 @@ const styles = StyleSheet.create({
     
   },
 
-  copyrightContainer: {
-    marginTop: 50,
-    alignItems: 'center',
-  },
+  loginContainer: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    marginTop: 30,
 
+  },
+  
   forgotpasswordContainer: {
     marginTop: 10,
     alignItems: 'center',
     
   },
 
-  loginContainer: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    marginTop: 30,
-
-  }
+  copyrightContainer: {
+    marginTop: 70,
+    alignItems: 'center',
+  },
 
 });
