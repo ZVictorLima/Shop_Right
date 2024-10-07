@@ -1,11 +1,15 @@
 import { StatusBar } from 'expo-status-bar';
 import { Button, Alert, Image, StyleSheet, Text, View, SafeAreaView, TextInput, TouchableOpacity } from 'react-native';
+import { useNavigation } from '@react-navigation/native'; 
 
 const logoImg = require("../assets/logo.png")
 const usernameImg = require("../assets/username.png")
 const lockImg = require("../assets/lock.png")
 
 export default function Login() {
+  const navigation = useNavigation();
+
+
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.logoContainer}>
@@ -25,9 +29,10 @@ export default function Login() {
               borderWidth: 1,
               borderColor: 'black',
               height: 60,
-              width: 300,
+              width: 280,
               fontSize: 50,
               padding: 10,
+              marginRight: 25
             }} />
         </View>
 
@@ -40,9 +45,10 @@ export default function Login() {
               borderWidth: 1,
               borderColor: 'black',
               height: 60,
-              width: 300,
+              width: 280,
               fontSize: 50,
               padding: 10,
+              marginRight: 25
             }} />
         </View>
 
@@ -53,7 +59,9 @@ export default function Login() {
             backgroundColor: 'lightgrey', padding: 10, borderRadius: 10,
             width: 200, height: 60,
             alignItems: 'center', justifyContent: 'center'
-          }} >
+          }} 
+          onPress={() => navigation.navigate('SelectionScreen')}
+           >
             <Text style={{ fontSize: 30, textAlign: 'center', fontWeight: 600 }}>Sign On</Text>
           </TouchableOpacity>
         </View>
@@ -97,13 +105,18 @@ const styles = StyleSheet.create({
   textFieldContainer: {
     marginTop: 50,
     width: '100%',
+    // borderWidth: 3,
+    // borderColor: 'black',
 
   },
 
   username: {
     flexDirection: 'row',
     justifyContent: 'space-evenly',
-    alignItems: 'center',
+    alignItems: 'center', 
+    width: '100%',
+    // borderWidth: 3,
+    // borderColor: 'black',
   },
 
   password: {
@@ -111,11 +124,12 @@ const styles = StyleSheet.create({
     justifyContent: 'space-evenly',
     alignItems: 'center',
     marginTop: 30,
-
+    width: '100%',
+    
   },
 
   copyrightContainer: {
-    marginTop: 150,
+    marginTop: 50,
     alignItems: 'center',
   },
 
