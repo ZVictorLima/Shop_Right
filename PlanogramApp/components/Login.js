@@ -105,9 +105,6 @@ const styles = StyleSheet.create({
   textFieldContainer: {
     marginTop: 50,
     width: '100%',
-    // borderWidth: 3,
-    // borderColor: 'black',
-
   },
 
   username: {
@@ -115,8 +112,6 @@ const styles = StyleSheet.create({
     justifyContent: 'space-evenly',
     alignItems: 'center', 
     width: '100%',
-    // borderWidth: 3,
-    // borderColor: 'black',
   },
 
   password: {
