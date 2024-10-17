@@ -31,56 +31,79 @@ export default function SelectionScreen() {
 
   return (
     <SafeAreaView style={styles.container}>
-
-    <View style={styles.imageContainer}>
+    <ScrollView style={styles.scroll}>
+    <View style={styles.rowContainer}>
       <TouchableOpacity onPress={() => navigation.navigate('DepartmentScreen')}>
       <View style={styles.selectionButton}>
-        <Image source={dairyData.image} style={{ height: 120, width: 100 }} />
+        <View style={styles.imageContainer}>
+        <Image source={dairyData.image} style={styles.buttonImage} />
+        </View>
+        <View style={styles.textContainer}>
         <Text style={styles.buttonText}>{dairyData.name}</Text>
+        </View>
       </View>
       </TouchableOpacity>
 
       <TouchableOpacity onPress={() => navigation.navigate('DepartmentScreen')}>
       <View style={styles.selectionButton}>
-        <Image source={meatData.image} style={{ height: 120, width: 100 }} />
+        <View style={styles.imageContainer}>
+        <Image source={meatData.image} style={styles.buttonImage} />
+        </View>
+        <View style={styles.textContainer}>
         <Text style={styles.buttonText}>{meatData.name}</Text>
+        </View>
       </View>
       </TouchableOpacity>
     </View>
 
-    <View style={styles.imageContainer}>
+    <View style={styles.rowContainer}>
     <TouchableOpacity onPress={() => navigation.navigate('DepartmentScreen')}>
       <View style={styles.selectionButton}>
-        <Image source={produceData.image} style={{ height: 120, width: 100 }} />
+        <View style={styles.imageContainer}>
+        <Image source={produceData.image} style={styles.buttonImage} />
+        </View>
+        <View style={styles.textContainer}>
         <Text style={styles.buttonText}>{produceData.name}</Text>
+        </View>
       </View>
       </TouchableOpacity>
 
       <TouchableOpacity onPress={() => navigation.navigate('DepartmentScreen')}>
       <View style={styles.selectionButton}>
+        <View style={styles.imageContainer}>
         <Image source={generalData.image} style={{ height: 100, width: 100 }} />
+        </View>
+        <View style={styles.textContainer}>
         <Text style={styles.buttonText}>{generalData.name}</Text>
+        </View>
       </View>
       </TouchableOpacity>
     </View>
 
-    <View style={styles.imageContainer}>
+    <View style={styles.rowContainer}>
       <TouchableOpacity onPress={() => navigation.navigate('DepartmentScreen')}>
       <View style={styles.selectionButton}>
-        <Image source={dairyData.image} style={{ height: 120, width: 100 }} />
+        <View style={styles.imageContainer}>
+        <Image source={dairyData.image} style={styles.buttonImage} />
+        </View>
+        <View style={styles.textContainer}>
         <Text style={styles.buttonText}>{dairyData.name}</Text>
+        </View>
       </View>
       </TouchableOpacity>
 
       <TouchableOpacity onPress={() => navigation.navigate('DepartmentScreen')}>
       <View style={styles.selectionButton}>
-        <Image source={meatData.image} style={{ height: 120, width: 100 }} />
+        <View style={styles.imageContainer}>
+        <Image source={meatData.image} style={styles.buttonImage} />
+        </View>
+        <View style={styles.textContainer}>
         <Text style={styles.buttonText}>{meatData.name}</Text>
+        </View>
       </View>
       </TouchableOpacity>
     </View>
-
-      
+    </ScrollView>
     </SafeAreaView>
   )
 }
@@ -90,29 +113,50 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: 'white',
     alignItems: 'center',
-    justifyContent: 'flex-start'
+    justifyContent: 'center',
   },
 
-  imageContainer: {
-    marginTop: 20,
-    width: '100%',
+  rowContainer: {
+    marginVertical: 20,
     flexDirection: 'row',
     justifyContent: 'space-evenly',
-    height: '33%',
+    width: '100%',
   },
 
   selectionButton: {
     width: 180,
-    height: '100%',
+    height: 200,
     borderWidth: 2,
     borderColor: 'black',
-    justifyContent: 'center',
+    justifyContent: 'flex-start',
     alignItems: 'center',
+    borderRadius: 5,
+  },
+
+  imageContainer: {
+    height: '75%',
+    justifyContent: 'flex-end',
+    alignItems: 'center',
+    width: '100%',
+
+  },
+
+  textContainer: {
+    height: '25%',
+    width: '100%',
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+
+  },
+
+  buttonImage: {
+    width: 100,
+    height: 120,
   },
 
   buttonText: {
     marginTop: 10,
-    fontSize: 20,
+    fontSize: 24,
     fontWeight: 'bold',
   }
 })
