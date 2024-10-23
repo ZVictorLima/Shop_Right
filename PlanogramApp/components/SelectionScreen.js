@@ -1,162 +1,89 @@
-import { View, Text, SafeAreaView, TouchableOpacity, StyleSheet, Image, ScrollView } from 'react-native'
-import React from 'react'
-import { useNavigation } from '@react-navigation/native'; 
-
+import { View, Text, SafeAreaView, TouchableOpacity, StyleSheet, Image, ScrollView } from 'react-native';
+import React from 'react';
+import { useNavigation } from '@react-navigation/native';
+import BurgerMenu from '../components/BurgerMenu'; // Import the BurgerMenu component
 
 export default function SelectionScreen() {
-
   const navigation = useNavigation();
 
-  const dairyData = {
-    image: require('../assets/ForButtons/ButtonsIcons/Dairy.png'),
-    name: 'Dairy',
-  }
-  
-  const meatData = {
-    image: require('../assets/ForButtons/ButtonsIcons/Meat.png'),
-    name: 'Meat',
-  }
-  
-  const produceData = {
-   image: require('../assets/ForButtons/ButtonsIcons/Produce.png'),
-    name: 'Produce',
-  }
-  const generalData = {
-    image: require('../assets/icon.png'),
-    name: 'General',
-  }
+  // Departments array for the burger menu
+  const departments = [
+    { name: 'Dairy', icon: 'nutrition-outline' },
+    { name: 'Meat', icon: 'restaurant-outline' },
+    { name: 'Produce', icon: 'leaf-outline' },
+    { name: 'General', icon: 'basket-outline' },
+  ];
 
-
-
+  // Button data for each department
+  const buttonData = [
+    { name: 'Dairy', image: require('../assets/ForButtons/ButtonsIcons/Dairy.png') },
+    { name: 'Meat', image: require('../assets/ForButtons/ButtonsIcons/Meat.png') },
+    { name: 'Produce', image: require('../assets/ForButtons/ButtonsIcons/Produce.png') },
+    { name: 'General', image: require('../assets/ForButtons/ButtonsIcons/General.png') },
+  ];
 
   return (
     <SafeAreaView style={styles.container}>
-    <ScrollView style={styles.scroll}>
-    <View style={styles.rowContainer}>
-      <TouchableOpacity onPress={() => navigation.navigate('DepartmentScreen')}>
-      <View style={styles.selectionButton}>
-        <View style={styles.imageContainer}>
-        <Image source={dairyData.image} style={styles.buttonImage} />
-        </View>
-        <View style={styles.textContainer}>
-        <Text style={styles.buttonText}>{dairyData.name}</Text>
-        </View>
-      </View>
-      </TouchableOpacity>
+      {/* Burger Menu */}
+      <BurgerMenu departments={departments} />
 
-      <TouchableOpacity onPress={() => navigation.navigate('DepartmentScreen')}>
-      <View style={styles.selectionButton}>
-        <View style={styles.imageContainer}>
-        <Image source={meatData.image} style={styles.buttonImage} />
+      {/* Main Button Content */}
+      <ScrollView style={styles.scroll}>
+        <View style={styles.rowContainer}>
+          {buttonData.map((item, index) => (
+            <ButtonComponent key={index} data={item} navigation={navigation} />
+          ))}
         </View>
-        <View style={styles.textContainer}>
-        <Text style={styles.buttonText}>{meatData.name}</Text>
-        </View>
-      </View>
-      </TouchableOpacity>
-    </View>
-
-    <View style={styles.rowContainer}>
-    <TouchableOpacity onPress={() => navigation.navigate('DepartmentScreen')}>
-      <View style={styles.selectionButton}>
-        <View style={styles.imageContainer}>
-        <Image source={produceData.image} style={styles.buttonImage} />
-        </View>
-        <View style={styles.textContainer}>
-        <Text style={styles.buttonText}>{produceData.name}</Text>
-        </View>
-      </View>
-      </TouchableOpacity>
-
-      <TouchableOpacity onPress={() => navigation.navigate('DepartmentScreen')}>
-      <View style={styles.selectionButton}>
-        <View style={styles.imageContainer}>
-        <Image source={generalData.image} style={{ height: 100, width: 100 }} />
-        </View>
-        <View style={styles.textContainer}>
-        <Text style={styles.buttonText}>{generalData.name}</Text>
-        </View>
-      </View>
-      </TouchableOpacity>
-    </View>
-
-    <View style={styles.rowContainer}>
-      <TouchableOpacity onPress={() => navigation.navigate('DepartmentScreen')}>
-      <View style={styles.selectionButton}>
-        <View style={styles.imageContainer}>
-        <Image source={dairyData.image} style={styles.buttonImage} />
-        </View>
-        <View style={styles.textContainer}>
-        <Text style={styles.buttonText}>{dairyData.name}</Text>
-        </View>
-      </View>
-      </TouchableOpacity>
-
-      <TouchableOpacity onPress={() => navigation.navigate('DepartmentScreen')}>
-      <View style={styles.selectionButton}>
-        <View style={styles.imageContainer}>
-        <Image source={meatData.image} style={styles.buttonImage} />
-        </View>
-        <View style={styles.textContainer}>
-        <Text style={styles.buttonText}>{meatData.name}</Text>
-        </View>
-      </View>
-      </TouchableOpacity>
-    </View>
-    </ScrollView>
+      </ScrollView>
     </SafeAreaView>
-  )
+  );
 }
+
+// Button component to display each department
+const ButtonComponent = ({ data, navigation }) => (
+  <TouchableOpacity style={styles.selectionButton} onPress={() => navigation.navigate('DepartmentScreen')}>
+    <Image source={data.image} style={styles.buttonImage} />
+    <Text style={styles.buttonText}>{data.name}</Text>
+  </TouchableOpacity>
+);
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: 'white',
-    alignItems: 'center',
-    justifyContent: 'center',
   },
-
   rowContainer: {
-    marginVertical: 20,
     flexDirection: 'row',
     justifyContent: 'space-evenly',
-    width: '100%',
+    flexWrap: 'wrap',
   },
-
   selectionButton: {
-    width: 180,
-    height: 200,
+    width: 160,
+    height: 180,
+    justifyContent: 'center',
+    alignItems: 'center',
     borderWidth: 2,
     borderColor: 'black',
-    justifyContent: 'flex-start',
-    alignItems: 'center',
-    borderRadius: 5,
+    borderRadius: 10,
+    backgroundColor: '#FFF',
+    marginVertical: 10,
+    shadowColor: '#000',
+    shadowOffset: { width: 2, height: 2 },
+    shadowOpacity: 0.3,
+    shadowRadius: 5,
+    elevation: 5,
   },
-
-  imageContainer: {
-    height: '75%',
-    justifyContent: 'flex-end',
-    alignItems: 'center',
-    width: '100%',
-
-  },
-
-  textContainer: {
-    height: '25%',
-    width: '100%',
-    justifyContent: 'flex-start',
-    alignItems: 'center',
-
-  },
-
   buttonImage: {
     width: 100,
-    height: 120,
+    height: 100,
+    resizeMode: 'contain',
+    marginBottom: 10,
   },
-
   buttonText: {
-    marginTop: 10,
-    fontSize: 24,
+    fontSize: 20,
     fontWeight: 'bold',
-  }
-})
+  },
+  scroll: {
+    marginTop: 80, // Adds space for the burger menu
+  },
+});
