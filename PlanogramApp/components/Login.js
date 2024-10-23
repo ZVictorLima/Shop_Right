@@ -1,8 +1,8 @@
 import { StatusBar } from 'expo-status-bar';
-import { Button, Alert, Image, StyleSheet, Text, View, SafeAreaView, TextInput, TouchableOpacity } from 'react-native';
+import { Button, Alert, Image, StyleSheet, Text, View, SafeAreaView, TextInput, TouchableOpacity, Platform } from 'react-native';
 import { useNavigation } from '@react-navigation/native'; 
 
-const logoImg = require("../assets/logo.png")
+const logoImg = require("../assets/Logo/MainLogo.png")
 const usernameImg = require("../assets/username.png")
 const lockImg = require("../assets/lock.png")
 
@@ -14,9 +14,7 @@ export default function Login() {
     <SafeAreaView style={styles.container}>
       <View style={styles.logoContainer}>
         <Image source={logoImg} style={{
-          height: 300, width: 300,
-          borderWidth: 1, borderColor: 'black', marginTop: 10,
-          borderRadius: 0
+          height: 300, width: 300,marginTop: 10,
         }} />
       </View>
 
@@ -94,6 +92,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     alignItems: 'center',
     justifyContent: 'flex-start',
+    paddingTop: Platform.OS === "android" ? 20 : 0,
   },
 
   logoContainer: {
@@ -105,9 +104,6 @@ const styles = StyleSheet.create({
   textFieldContainer: {
     marginTop: 50,
     width: '100%',
-    // borderWidth: 3,
-    // borderColor: 'black',
-
   },
 
   username: {
@@ -115,8 +111,6 @@ const styles = StyleSheet.create({
     justifyContent: 'space-evenly',
     alignItems: 'center', 
     width: '100%',
-    // borderWidth: 3,
-    // borderColor: 'black',
   },
 
   password: {
