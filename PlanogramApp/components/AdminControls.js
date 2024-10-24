@@ -1,97 +1,88 @@
-import React, { useState } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, Alert } from 'react-native';
-import DocumentPicker from 'react-native-document-picker';
-import RNFS from 'react-native-fs';
-import XLSX from 'xlsx';
-import axios from 'axios'; // For making API requests
+import React from 'react';
+import { 
+  View, 
+  Text, 
+  SafeAreaView, 
+  TouchableOpacity, 
+  StyleSheet 
+} from 'react-native';
+import Ionicons from 'react-native-vector-icons/Ionicons'; // Import Ionicons
 
 export default function AdminControls() {
-  const [fileName, setFileName] = useState(null);
-
-  // Function to handle file selection
-  const selectFile = async () => {
-    try {
-      const res = await DocumentPicker.pick({
-        type: [DocumentPicker.types.allFiles],
-      });
-      setFileName(res[0].name);
-      readFile(res[0].uri);
-    } catch (err) {
-      if (DocumentPicker.isCancel(err)) {
-        Alert.alert('File selection canceled');
-      } else {
-        Alert.alert('Unknown error: ' + err.message);
-      }
-    }
-  };
-
-  // Function to read Excel file
-  const readFile = async (uri) => {
-    try {
-      const fileData = await RNFS.readFile(uri, 'base64');
-      const binary = Buffer.from(fileData, 'base64');
-      const workbook = XLSX.read(binary, { type: 'binary' });
-      const sheetName = workbook.SheetNames[0];
-      const sheet = workbook.Sheets[sheetName];
-      const data = XLSX.utils.sheet_to_json(sheet);
-      uploadToServer(data);
-    } catch (error) {
-      Alert.alert('Error reading file: ' + error.message);
-    }
-  };
-
-  // Function to upload data to server
-  const uploadToServer = async (data) => {
-    try {
-      const response = await axios.post('https://your-server-url/api/upload', { data });
-      if (response.status === 200) {
-        Alert.alert('File uploaded successfully!');
-      } else {
-        Alert.alert('Failed to upload file');
-      }
-    } catch (error) {
-      Alert.alert('Server error: ' + error.message);
-    }
-  };
-
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Admin Controls</Text>
-
-      <TouchableOpacity style={styles.uploadButton} onPress={selectFile}>
-        <Text style={styles.buttonText}>Upload Planogram</Text>
-      </TouchableOpacity>
-
-      {fileName && <Text style={styles.fileName}>Selected File: {fileName}</Text>}
-    </View>
+    <SafeAreaView style={styles.container}>
+      {/* Header Text aligned to the top left */}
+      <Text style={styles.headerText}>Admin Controls</Text>
+      
+      {/* Main Options */}
+      <View style={styles.buttonContainer}>
+        <AdminButton 
+          name="Upload Planogram" 
+          icon="cloud-upload-outline" // Ionicons icon for uploading
+        />
+        <AdminButton 
+          name="Edit Existing Planogram" 
+          icon="create-outline" // Ionicons icon for editing
+        />
+        <AdminButton 
+          name="Manage Users" 
+          icon="people-outline" // Ionicons icon for managing users
+        />
+      </View>
+    </SafeAreaView>
   );
 }
+
+// Admin Button Component
+const AdminButton = ({ name, icon }) => {
+  return (
+    <TouchableOpacity style={styles.button}>
+      <Ionicons name={icon} size={40} color="black" style={styles.buttonIcon} />
+      <Text style={styles.buttonText}>{name}</Text>
+    </TouchableOpacity>
+  );
+};
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: 'white',
     padding: 20,
-    backgroundColor: '#fff',
   },
-  title: {
-    fontSize: 24,
+  headerText: {
+    fontSize: 32, // Increased font size for visibility
     fontWeight: 'bold',
-    marginBottom: 20,
-    alignSelf: 'flex-start',
+    textAlign: 'left', // Aligns text to the left
   },
-  uploadButton: {
-    backgroundColor: '#dcdcdc',
-    padding: 20,
-    borderRadius: 10,
+
+  buttonContainer: {
+    flex: 1,
+    justifyContent: 'center', // Centers buttons vertically
+    alignItems: 'center', // Centers buttons horizontally
+  },
+
+  button: {
+    width: 350, 
+    height: 120, 
+    backgroundColor: '#E6E6FA',
+    flexDirection: 'row',
     alignItems: 'center',
-    marginBottom: 20,
+    justifyContent: 'center',
+    borderRadius: 15,
+    marginVertical: 10, // Adds space between buttons
+    shadowColor: '#000000',
+    shadowOffset: { width: 5, height: 5 },
+    shadowOpacity: 0.5,
+    shadowRadius: 5,
+    elevation: 10,
   },
+
+  buttonIcon: {
+    marginRight: 10,
+  },
+
   buttonText: {
-    fontSize: 18,
-    color: '#000',
-  },
-  fileName: {
-    fontSize: 16,
-    marginTop: 10,
+    fontSize: 25, 
+    fontWeight: '600',
   },
 });
