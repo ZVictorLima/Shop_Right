@@ -133,13 +133,17 @@ const styles = StyleSheet.create({
   signOnButton: {
     borderWidth: 2,
     borderColor: 'black',
-    backgroundColor: 'lightgrey',
     padding: 10,
-    borderRadius: 10,
-    width: 200,
+    width: 240,
     height: 60,
-    alignItems: 'center',
+    backgroundColor: '#EDEBFF',
+    borderRadius: 15,
     justifyContent: 'center',
+    shadowColor: '#000000',
+    shadowOffset: { width: 5, height: 5 },
+    shadowOpacity: 0.5,
+    shadowRadius: 5,
+    elevation: 10,
   },
   signOnText: {
     fontSize: 30,
@@ -147,7 +151,7 @@ const styles = StyleSheet.create({
     fontWeight: '600',
   },
   forgotpasswordContainer: {
-    marginTop: 10,
+    marginTop: 15,
     alignItems: 'center',
   },
   forgotPasswordText: {
