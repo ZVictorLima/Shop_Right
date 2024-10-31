@@ -1,9 +1,5 @@
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, Alert } from 'react-native';
-import DocumentPicker from 'react-native-document-picker';
-import RNFS from 'react-native-fs';
-import XLSX from 'xlsx';
-import axios from 'axios'; // For making API requests
 
 export default function AdminControls() {
   const [fileName, setFileName] = useState(null);
