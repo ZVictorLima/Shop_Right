@@ -1,36 +1,44 @@
 
 import React, { useState } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, Alert } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, SafeAreaView, Alert } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
-import React from 'react';
-import { 
-  View, 
-  Text, 
-  SafeAreaView, 
-  TouchableOpacity, 
-  StyleSheet 
-} from 'react-native';
+// import React from 'react';
+// import { 
+//   View, 
+//   Text, 
+//   SafeAreaView, 
+//   TouchableOpacity, 
+//   StyleSheet 
+// } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons'; // Import Ionicons
 
 export default function AdminControls() {
+  const navigation = useNavigation();
   return (
     <SafeAreaView style={styles.container}>
       {/* Header Text aligned to the top left */}
       <Text style={styles.headerText}>Admin Controls</Text>
       
       {/* Main Options */}
-      <View style={styles.buttonContainer}>
+      <View style={styles.buttonContainer} >
         <AdminButton 
           name="Upload Planogram" 
-          icon="cloud-upload-outline" // Ionicons icon for uploading
+          icon="cloud-upload-outline"
+          navigation={navigation}
+          page="UploadPage" 
         />
         <AdminButton 
           name="Edit Existing Planogram" 
           icon="create-outline" // Ionicons icon for editing
+          navigation={navigation}
+          page="EditPage"
         />
         <AdminButton 
           name="Manage Users" 
           icon="people-outline" // Ionicons icon for managing users
+          navigation={navigation}
+          page="ManagePage"
         />
       </View>
     </SafeAreaView>
@@ -38,9 +46,9 @@ export default function AdminControls() {
 }
 
 // Admin Button Component
-const AdminButton = ({ name, icon }) => {
+const AdminButton = ({ name, icon, navigation, page }) => {
   return (
-    <TouchableOpacity style={styles.button}>
+    <TouchableOpacity style={styles.button} onPress={() => navigation.navigate(page)}>
       <Ionicons name={icon} size={40} color="black" style={styles.buttonIcon} />
       <Text style={styles.buttonText}>{name}</Text>
     </TouchableOpacity>
@@ -57,6 +65,7 @@ const styles = StyleSheet.create({
     fontSize: 32, // Increased font size for visibility
     fontWeight: 'bold',
     textAlign: 'left', // Aligns text to the left
+    padding: 20 
   },
 
   buttonContainer: {
@@ -67,7 +76,7 @@ const styles = StyleSheet.create({
 
   button: {
     width: 350, 
-    height: 120, 
+    height: 100, 
     backgroundColor: '#E6E6FA',
     flexDirection: 'row',
     alignItems: 'center',

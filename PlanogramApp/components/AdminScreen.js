@@ -22,7 +22,7 @@ export default function AdminScreen() {
         style={styles.optionButton}
         onPress={() => navigation.navigate('SelectionScreen')}
       >
-        <Ionicons name="menu-outline" size={24} color="#4A4A4A" />
+        <Ionicons name="menu-outline" size={32} color="black" />
         <Text style={styles.optionText}>Departments</Text>
       </TouchableOpacity>
 
@@ -31,7 +31,7 @@ export default function AdminScreen() {
         style={styles.optionButton}
         onPress={() => navigation.navigate('AdminControls')}
       >
-        <Ionicons name="menu-outline" size={24} color="#4A4A4A" />
+        <Ionicons name="menu-outline" size={32} color="black" />
         <Text style={styles.optionText}>Admin Controls</Text>
       </TouchableOpacity>
     </SafeAreaView>
@@ -55,15 +55,21 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#EDEBFF',
     padding: 15,
-    marginVertical: 10,
+    marginTop: 20,
     borderRadius: 15,
     width: '80%',
+    height: 100,
     justifyContent: 'center',
+    shadowColor: '#000000',
+    shadowOffset: { width: 5, height: 5 },
+    shadowOpacity: 0.5,
+    shadowRadius: 5,
+    elevation: 10,
   },
   optionText: {
     marginLeft: 10,
-    fontSize: 18,
-    color: '#4A4A4A',
+    fontSize: 24,
     fontWeight: 'bold',
+    color: 'black'
   },
 });

@@ -6,7 +6,9 @@ import AdminControls from './components/AdminControls';
 import SelectionScreen from './components/SelectionScreen';
 import DepartmentScreen from './components/DepartmentScreen';
 import Login from './components/Login';
-
+import UploadPage from './components/UploadPage';
+import ManagePage from './components/ManagePage';
+import EditPage from './components/EditPage';
 
 const Stack = createStackNavigator();
 
@@ -19,6 +21,10 @@ export default function App() {
         <Stack.Screen name="DepartmentScreen" component={DepartmentScreen} />
         <Stack.Screen name="AdminScreen" component={AdminScreen} />
         <Stack.Screen name="AdminControls" component={AdminControls} />
+        <Stack.Screen name="UploadPage" component={UploadPage} />
+        <Stack.Screen name="ManagePage" component={ManagePage} />
+        <Stack.Screen name="EditPage" component={EditPage} />
+
       </Stack.Navigator>
     </NavigationContainer>
   );
