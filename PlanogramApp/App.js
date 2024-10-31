@@ -17,13 +17,13 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Login">
         <Stack.Screen name="Login" component={Login} options={{ headerShown: false }}/>
-        <Stack.Screen name="SelectionScreen" component={SelectionScreen} />
+        <Stack.Screen name="SelectionScreen" component={SelectionScreen} options={{ headerBackTitle: 'Options', headerTitle: 'Departments' }}/>
         <Stack.Screen name="DepartmentScreen" component={DepartmentScreen} />
-        <Stack.Screen name="AdminScreen" component={AdminScreen} />
-        <Stack.Screen name="AdminControls" component={AdminControls} />
-        <Stack.Screen name="UploadPage" component={UploadPage} />
-        <Stack.Screen name="ManagePage" component={ManagePage} />
-        <Stack.Screen name="EditPage" component={EditPage} />
+        <Stack.Screen name="AdminScreen" component={AdminScreen} options={{ headerTitle: 'Options'}} />
+        <Stack.Screen name="AdminControls" component={AdminControls} options={{ headerBackTitle: 'Options', headerTitle: 'Controls' }}/>
+        <Stack.Screen name="UploadPage" component={UploadPage} options={{ headerBackTitle: 'Controls' }}/>
+        <Stack.Screen name="ManagePage" component={ManagePage} options={{ headerBackTitle: 'Controls' }}/>
+        <Stack.Screen name="EditPage" component={EditPage} options={{ headerBackTitle: 'Controls' }}/>
 
       </Stack.Navigator>
     </NavigationContainer>

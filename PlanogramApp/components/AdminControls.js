@@ -18,7 +18,7 @@ export default function AdminControls() {
   return (
     <SafeAreaView style={styles.container}>
       {/* Header Text aligned to the top left */}
-      <Text style={styles.headerText}>Admin Controls</Text>
+      {/* <Text style={styles.headerText}>Admin Controls</Text> */}
       
       {/* Main Options */}
       <View style={styles.buttonContainer} >
@@ -95,7 +95,7 @@ const styles = StyleSheet.create({
   },
 
   buttonText: {
-    fontSize: 25, 
+    fontSize: 26, 
     fontWeight: '600',
   },
 });

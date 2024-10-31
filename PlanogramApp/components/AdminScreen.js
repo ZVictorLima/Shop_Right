@@ -15,7 +15,7 @@ export default function AdminScreen() {
   return (
     <SafeAreaView style={styles.container}>
       {/* Title */}
-      <Text style={styles.title}>Please Choose One Of The Following Options</Text>
+      <Text style={styles.title}>Please choose one of the following options</Text>
 
       {/* Departments Button */}
       <TouchableOpacity
@@ -46,7 +46,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFFFFF',
   },
   title: {
-    fontSize: 18,
+    fontSize: 32,
+    marginHorizontal: 30,
     fontWeight: 'bold',
     textAlign: 'center',
   },
@@ -68,7 +69,7 @@ const styles = StyleSheet.create({
   },
   optionText: {
     marginLeft: 10,
-    fontSize: 24,
+    fontSize: 26,
     fontWeight: 'bold',
     color: 'black'
   },
