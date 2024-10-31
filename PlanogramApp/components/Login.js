@@ -1,4 +1,4 @@
-import { StatusBar } from 'expo-status-bar';
+import { StatusBar } from 'expo-status-bar'; // not in use
 import { 
   Button, 
   Alert, 
@@ -126,8 +126,9 @@ const styles = StyleSheet.create({
   },
   loginContainer: {
     flexDirection: 'row',
+    borderRadius: 10,
     justifyContent: 'center',
-    marginTop: 30,
+    marginTop: 20,
   },
   signOnButton: {
     borderWidth: 2,

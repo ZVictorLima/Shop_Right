@@ -8,9 +8,9 @@ export default function SelectionScreen() {
 
   // Departments array for the burger menu
   const departments = [
-    { name: 'Dairy', icon: 'nutrition-outline' },
-    { name: 'Meat', icon: 'restaurant-outline' },
-    { name: 'Produce', icon: 'leaf-outline' },
+    { name: 'Dairy', icon: 'nutrition-outline' }, // Maybe i will make one the place where it is being imported does not have it 
+    { name: 'Meat', icon: 'restaurant-outline' }, // Maybe i will make one the place where it is being imported does not have it 
+    { name: 'Produce', icon: 'leaf-outline' }, // Maybe i will make one the place where it is being imported does not have it 
     { name: 'General', icon: 'basket-outline' },
   ];
 
