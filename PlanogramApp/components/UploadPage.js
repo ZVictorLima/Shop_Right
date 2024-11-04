@@ -1,36 +1,59 @@
 import { Text, View, StyleSheet, TextInput, Button } from 'react-native'
 import React, { Component, useState } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { useNavigation } from '@react-navigation/native';
 
 export default function UploadPage() {
-    const [inputText, setInputText] = useState('')
+    const [gondolaWidth, setGondolaWidth] = useState('');
+    const [gondolaHeight, setGondolaHeight] = useState('');
+    const [rowHeight, setRowHeight] = useState('');
+    const [shelvesDisplay, setShelvesDisplay] = useState('');
 
-    const handleSave = () => {
-        console.log('Saved text:', inputText)
-      }
+    const navigation = useNavigation();
+
+    const handlePress = () => {
+        console.log('Gondola width: ', gondolaWidth);
+        console.log('Gondola height: ', gondolaHeight);
+        console.log('Height of each row: ', rowHeight);
+        console.log('Shelves on display: ', shelvesDisplay);
+        navigation.navigate('RowEntry');
+    }
 
     return (
         <SafeAreaView style={styles.container}>
-        <View style={styles.headerText}>
-        <Text>Please enter the following information to build your planogram</Text>
-        </View>
         <View>
-            <Text>Department: </Text>
-            <TextInput placeholder="Department Name" value={inputText} onChangeText={text => setInputText(text)} />
-            <Button title="Save" onPress={handleSave} />
-            
+        <Text style={styles.headerText}>Create Your Planogram</Text>
         </View>
+
         <View>
-            <Text>Shelf Number: </Text>
-            <TextInput placeholder="Shelf Number" />
-        </View>
-        <View>
-            <Text>Total Shelf Width: </Text>
-            <TextInput placeholder="Shelf width" />
+            <Text style={styles.bodyText}>Width of Gondola: </Text>
+            <TextInput 
+            style={styles.bodyText}
+            placeholder="Shelf width" 
+            value={gondolaWidth}
+            onChangeText={setGondolaWidth}/>
         </View>
         <View>  
-            <Text>Total Shelf Height: </Text>
-            <TextInput placeholder="Shelf height" />
+            <Text style={styles.bodyText}>Height of Gondola: </Text>
+            <TextInput 
+            style={styles.bodyText}
+            placeholder="Shelf height" 
+            value={gondolaHeight}
+            onChangeText={setGondolaHeight}/>
+        </View>
+        <View>  
+            <Text>Individual Row Height: </Text>
+            <TextInput placeholder="Individual row height" 
+            value={rowHeight}
+            onChangeText={setRowHeight}/>
+        </View>
+        <View>  
+            <Text>Number of shelves on display: </Text>
+            <TextInput placeholder="shelves on display" 
+            value={shelvesDisplay}
+            onChangeText={setShelvesDisplay}
+            />
+        <Button title="Save" onPress={handlePress} />
         </View>
         </SafeAreaView>
 
@@ -48,8 +71,11 @@ container: {
 },
 
 headerText: {
-    borderWidth: 2,
-    borderColor: 'black',
-    
+    fontSize: 30,
+},
+
+bodyText: {
+    fontSize: 20,
 }
+
 });
