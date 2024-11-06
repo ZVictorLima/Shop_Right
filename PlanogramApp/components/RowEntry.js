@@ -1,3 +1,5 @@
+// test commit
+
 import { StyleSheet, SafeAreaView, TextInput, Text, View, Image } from 'react-native';
 import React, { useState } from 'react';
 
