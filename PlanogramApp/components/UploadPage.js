@@ -1,4 +1,4 @@
-import { Text, View, StyleSheet, TextInput, Button } from 'react-native'
+import { Text, View, StyleSheet, TextInput, Button, PressableOpacity } from 'react-native'
 import React, { Component, useState } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native';
@@ -20,41 +20,56 @@ export default function UploadPage() {
     }
 
     return (
-        <SafeAreaView style={styles.container}>
-        <View>
-        <Text style={styles.headerText}>Create Your Planogram</Text>
-        </View>
 
-        <View>
-            <Text style={styles.bodyText}>Width of Gondola: </Text>
-            <TextInput 
-            style={styles.bodyText}
-            placeholder="Shelf width" 
-            value={gondolaWidth}
-            onChangeText={setGondolaWidth}/>
-        </View>
-        <View>  
-            <Text style={styles.bodyText}>Height of Gondola: </Text>
-            <TextInput 
-            style={styles.bodyText}
-            placeholder="Shelf height" 
-            value={gondolaHeight}
-            onChangeText={setGondolaHeight}/>
-        </View>
-        <View>  
-            <Text>Individual Row Height: </Text>
-            <TextInput placeholder="Individual row height" 
-            value={rowHeight}
-            onChangeText={setRowHeight}/>
-        </View>
-        <View>  
-            <Text>Number of shelves on display: </Text>
-            <TextInput placeholder="shelves on display" 
-            value={shelvesDisplay}
-            onChangeText={setShelvesDisplay}
-            />
-        <Button title="Save" onPress={handlePress} />
-        </View>
+        <SafeAreaView style={styles.container}>
+
+            <View style={styles.createContainer}>
+
+                <View>
+                    <Text style={styles.headerText}>Create Your Planogram</Text>
+                </View>
+
+                <View style={styles.textContainer}>
+                    <Text style={styles.bodyText}>Gondola width: </Text>
+                    <TextInput
+                        style={styles.bodyText}
+                        placeholder="inches"
+                        value={gondolaWidth}
+                        onChangeText={setGondolaWidth} />
+                </View>
+                <View style={styles.textContainer}>
+                    <Text style={styles.bodyText}>Gondola height: </Text>
+                    <TextInput
+                        style={styles.bodyText}
+                        placeholder="inches"
+                        value={gondolaHeight}
+                        onChangeText={setGondolaHeight} />
+                </View>
+                <View style={styles.textContainer}>
+                    <Text style={styles.bodyText}>Space between rows: </Text>
+                    <TextInput
+                        style={styles.bodyText}
+                        placeholder='inches'
+                        value={rowHeight}
+                        onChangeText={setRowHeight} />
+                </View>
+                <View style={styles.textContainer}>
+                    <Text style={styles.bodyText}>Number of rows: </Text>
+                    <TextInput
+                        style={styles.bodyText}
+                        placeholder='rows'
+                        value={shelvesDisplay}
+                        onChangeText={setShelvesDisplay}
+                    />
+                </View>
+                <Button title="Save" 
+                color={'blue'}
+                style={styles.saveButton}
+                onPress={handlePress} 
+                 />
+
+            </View>
+
         </SafeAreaView>
 
 
@@ -62,20 +77,51 @@ export default function UploadPage() {
 }
 
 const styles = StyleSheet.create({
-container: {
-    justifyContent: 'flex-start',
-    alignItems: 'center',
-    borderWidth: 4,
-    borderColor: 'black',
-    flex: 1,
-},
+    container: {
+        display: 'flex',
+        flex: 1,
+        justifyContent: 'flex-start',
+        alignItems: 'center',
+        backgroundColor: 'white',
+        
+    },
 
-headerText: {
-    fontSize: 30,
-},
+    createContainer: {
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        width: '100%',
+        padding: 10,
+        borderBottomColor: 'black',
+        borderBottomWidth: 2,
+    },
 
-bodyText: {
-    fontSize: 20,
-}
+    textContainer: {
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'flex-start',
+        alignItems: 'center',
+        marginVertical: 10,
+        width: '100%',
+        },
+
+    bodyText: {
+        fontSize: 24,
+    },
+
+    headerText: {
+        fontSize: 32,
+        fontWeight: 'bold',
+        marginBottom: 20,
+    },
+
+    saveButton: {
+        backgroundColor: 'blue',
+        color: 'white',
+        fontSize: 24,
+        padding: 10,
+        margin: 10,
+        borderRadius: 10,
+    },
 
 });

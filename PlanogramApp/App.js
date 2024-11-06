@@ -22,7 +22,7 @@ export default function App() {
         <Stack.Screen name="DepartmentScreen" component={DepartmentScreen} />
         <Stack.Screen name="AdminScreen" component={AdminScreen} options={{ headerTitle: 'Options'}} />
         <Stack.Screen name="AdminControls" component={AdminControls} options={{ headerBackTitle: 'Options', headerTitle: 'Controls' }}/>
-        <Stack.Screen name="UploadPage" component={UploadPage} options={{ headerBackTitle: 'Controls' }}/>
+        <Stack.Screen name="UploadPage" component={UploadPage} options={{ headerBackTitle: 'Controls', headerTitle: 'Upload' }}/>
         <Stack.Screen name="ManagePage" component={ManagePage} options={{ headerBackTitle: 'Controls' }}/>
         <Stack.Screen name="EditPage" component={EditPage} options={{ headerBackTitle: 'Controls' }}/>
         <Stack.Screen name="RowEntry" component={RowEntry} options={{ headerTitle: 'Row {} Entry' }}/>
