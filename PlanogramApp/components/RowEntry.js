@@ -1,11 +1,10 @@
-// test commit
-
-import { StyleSheet, SafeAreaView, TextInput, Text, View, Image } from 'react-native';
+import { StyleSheet, SafeAreaView, TextInput, Text, View, Image, Button } from 'react-native';
 import React, { useState } from 'react';
 
 export default function RowEntry() {
   const [numProducts, setNumProducts] = useState(1);
   const [productData, setProductData] = useState([]);  // Store product data from API
+  const [upcList, setUpcList] = useState(['']);  // Store UPCs for each product
 
   const handleApiCall = async (upc, index) => {
     try {
@@ -27,6 +26,12 @@ export default function RowEntry() {
     }
   };
 
+  const handleUpcChange = (upc, index) => {
+    const newUpcList = [...upcList];
+    newUpcList[index] = upc;
+    setUpcList(newUpcList);
+  };
+
   const renderProductInputs = () => {
     return Array.from({ length: numProducts }).map((_, index) => (
       <View key={index} style={styles.productContainer}>
@@ -34,9 +39,13 @@ export default function RowEntry() {
         <TextInput
           placeholder="UPC"
           style={styles.input}
-          onChangeText={(upc) => handleApiCall(upc, index)}  // Trigger API call when UPC is entered
+          value={upcList[index] || ''}
+          onChangeText={(upc) => handleUpcChange(upc, index)}  // Update UPC state for the respective index
         />
-
+        <Button
+          title="Submit"
+          onPress={() => handleApiCall(upcList[index], index)}  // Trigger API call when button is pressed
+        />
         {productData[index] && (
           <View style={styles.productInfo}>
             <Text>Title: {productData[index].title}</Text>
@@ -71,7 +80,12 @@ export default function RowEntry() {
           style={styles.input}
           keyboardType="numeric"
           value={numProducts.toString()}
-          onChangeText={(value) => setNumProducts(Number(value))}
+          onChangeText={(value) => {
+            const num = Number(value);
+            setNumProducts(num);
+            setUpcList(Array(num).fill(''));  // Adjust UPC list length when number of products changes
+            setProductData(Array(num).fill(null));  // Adjust product data length when number of products changes
+          }}
         />
       </View>
 
