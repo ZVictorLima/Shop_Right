@@ -1,7 +1,4 @@
-import { StatusBar } from 'expo-status-bar'; // not in use
 import { 
-  Button, 
-  Alert, 
   Image, 
   StyleSheet, 
   Text, 
@@ -11,6 +8,7 @@ import {
   TouchableOpacity, 
   Platform 
 } from 'react-native';
+import { useState } from 'react';
 import { useNavigation } from '@react-navigation/native'; 
 
 // Image imports
@@ -21,62 +19,65 @@ const lockImg = require("../assets/lock.png");
 export default function Login() {
   const navigation = useNavigation();
 
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handlePress = () => {
+    navigation.navigate('AdminScreen');
+  }
+
+  const isComplete = username && password;
+
   return (
     <SafeAreaView style={styles.container}>
       {/* Logo Container */}
       <View style={styles.logoContainer}>
         <Image 
           source={logoImg} 
-          style={{ height: 300, width: 300, marginTop: 10 }} 
+          style={styles.logo} 
         />
       </View>
 
       {/* Text Fields Container */}
       <View style={styles.textFieldContainer}>
         {/* Username Input */}
-        <View style={styles.username}>
-          <Image source={usernameImg} style={{ height: 60, width: 60 }} />
+        <View style={styles.inputContainer}>
+          <Image source={usernameImg} style={styles.icon} />
           <TextInput 
             placeholder="Username"
             placeholderTextColor="darkgrey"
             style={styles.input}
+            onChangeText={setUsername}
+            value={username}
           />
         </View>
 
         {/* Password Input */}
-        <View style={styles.password}>
-          <Image source={lockImg} style={{ height: 60, width: 60 }} />
+        <View style={styles.inputContainer}>
+          <Image source={lockImg} style={styles.icon} />
           <TextInput 
             placeholder="Password"
             secureTextEntry={true}
             placeholderTextColor="darkgrey"
             style={styles.input}
+            onChangeText={setPassword}
+            value={password}
           />
         </View>
 
         {/* Sign On Button */}
-        <View style={styles.loginContainer}>
-          <TouchableOpacity 
-            style={styles.signOnButton}
-            onPress={() => navigation.navigate('AdminScreen')}
-          >
-            <Text style={styles.signOnText}>Sign On</Text>
-          </TouchableOpacity>
-        </View>
-
-        {/* Forgot Password Link */}
-        <View style={styles.forgotpasswordContainer}>
-          <TouchableOpacity>
-            <Text style={styles.forgotPasswordText}>
-              Forgot Password?
-            </Text>
-          </TouchableOpacity>
-        </View>
+        <TouchableOpacity 
+          style={styles.signOnButton}
+          // disabled={!isComplete}
+          onPress={handlePress}
+        >
+          <Text style={styles.signOnText}>Sign On</Text>
+        </TouchableOpacity>
 
         {/* Copyright Info */}
         <View style={styles.copyrightContainer}>
-          <Text>
-            Copyright 2024 © All Rights Reserved
+          <Text style={styles.copyrightText}>
+            © 2024 Stock Right. All rights reserved.
           </Text>
         </View>
       </View>
@@ -90,76 +91,72 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: 'white',
     alignItems: 'center',
-    justifyContent: 'flex-start',
+    justifyContent: 'center',
     paddingTop: Platform.OS === "android" ? 20 : 0,
   },
   logoContainer: {
-    width: '100%',
     alignItems: 'center',
-    marginTop: 80,
+    marginBottom: 50,
+  },
+  logo: {
+    height: 200,
+    width: 200,
+    resizeMode: 'contain',
   },
   textFieldContainer: {
-    marginTop: 50,
-    width: '100%',
-  },
-  username: {
-    flexDirection: 'row',
-    justifyContent: 'space-evenly',
-    alignItems: 'center', 
-    width: '100%',
-  },
-  password: {
-    flexDirection: 'row',
-    justifyContent: 'space-evenly',
+    width: '90%',
     alignItems: 'center',
-    marginTop: 30,
+    
+  },
+  inputContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: '#F5F5F5',
+    borderRadius: 12,
+    marginBottom: 20,
     width: '100%',
+    padding: 10,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.2,
+    shadowRadius: 4,
+    elevation: 3,
+  },
+  icon: {
+    height: 30,
+    width: 30,
+    marginRight: 10,
   },
   input: {
-    borderWidth: 1,
-    borderColor: 'black',
-    height: 60,
-    width: 280,
+    flex: 1,
     fontSize: 18,
-    padding: 10,
-    marginRight: 25,
-  },
-  loginContainer: {
-    flexDirection: 'row',
-    borderRadius: 10,
-    justifyContent: 'center',
-    marginTop: 20,
+    color: '#333',
   },
   signOnButton: {
-    borderWidth: 2,
-    borderColor: 'black',
-    padding: 10,
-    width: 240,
-    height: 60,
-    backgroundColor: '#EDEBFF',
+    backgroundColor: '#E6E6FA',
+    paddingVertical: 15,
+    paddingHorizontal: 80,
     borderRadius: 15,
-    justifyContent: 'center',
-    shadowColor: '#000000',
-    shadowOffset: { width: 5, height: 5 },
-    shadowOpacity: 0.5,
+    marginTop: 30,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.3,
     shadowRadius: 5,
-    elevation: 10,
+    elevation: 5,
   },
   signOnText: {
-    fontSize: 30,
-    textAlign: 'center',
-    fontWeight: '600',
-  },
-  forgotpasswordContainer: {
-    marginTop: 15,
-    alignItems: 'center',
-  },
-  forgotPasswordText: {
-    color: 'blue',
+    color: 'black',
     fontSize: 20,
+    fontWeight: 'bold',
+    textAlign: 'center',
   },
   copyrightContainer: {
-    marginTop: 70,
+    marginTop: 50,
     alignItems: 'center',
   },
+  copyrightText: {
+    fontSize: 14,
+    color: '#888',
+  },
 });
+

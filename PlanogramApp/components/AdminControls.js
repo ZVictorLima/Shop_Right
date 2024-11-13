@@ -15,6 +15,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons'; // Import Ionicons
 
 export default function AdminControls() {
   const navigation = useNavigation();
+
   return (
     <SafeAreaView style={styles.container}>
       {/* Header Text aligned to the top left */}
