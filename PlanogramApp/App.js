@@ -8,9 +8,9 @@ import DepartmentScreen from './components/DepartmentScreen';
 import Login from './components/Login';
 import UploadPage from './components/UploadPage';
 import ManagePage from './components/ManagePage';
-import EditPage from './components/EditPage';
 import RowEntry from './components/RowEntry';
 import PlanogramSuccess from './components/PlanogramSuccess';
+import EditPage from './components/EditPage';
 
 
 const Stack = createStackNavigator();
@@ -28,10 +28,9 @@ export default function App() {
         <Stack.Screen name="ManagePage" component={ManagePage} options={{ headerBackTitle: 'Controls' }}/>
         <Stack.Screen name="EditPage" component={EditPage} options={{ headerBackTitle: 'Controls' }}/>
         <Stack.Screen name="RowEntry" component={RowEntry} options={{ headerTitle: '' }}/>
-        <Stack.Screen name="PlanogramSuccess" component={PlanogramSuccess} options={{ headerShown: false }}/>
+        <Stack.Screen name="PlanogramSuccess" component={PlanogramSuccess} options={{ headerTitle: '' }}/>
+
       </Stack.Navigator>
     </NavigationContainer>
   );
 }
-
-
