@@ -27,7 +27,7 @@ export default function App() {
         <Stack.Screen name="UploadPage" component={UploadPage} options={{ headerBackTitle: 'Controls', headerTitle: 'Upload' }}/>
         <Stack.Screen name="ManagePage" component={ManagePage} options={{ headerBackTitle: 'Controls' }}/>
         <Stack.Screen name="EditPage" component={EditPage} options={{ headerBackTitle: 'Controls' }}/>
-        <Stack.Screen name="RowEntry" component={RowEntry} options={{ headerTitle: 'Row Entry', headerTitle: '' }}/>
+        <Stack.Screen name="RowEntry" component={RowEntry} options={{ headerTitle: '' }}/>
         <Stack.Screen name="PlanogramSuccess" component={PlanogramSuccess} options={{ headerShown: false }}/>
       </Stack.Navigator>
     </NavigationContainer>
