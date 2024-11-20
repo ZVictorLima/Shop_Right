@@ -28,9 +28,9 @@ def openImageFromURL(url):
 def fuzz_trim(image, fuzz_percent=10):
     """
     Trims an image by removing borders that are similar to the top-left pixel's color,
-    with a specified fuzziness percentage.
+    and makes the background transparent.
     """
-    # Open the image
+    # Ensure the image is in RGBA mode
     image = image.convert("RGBA")
     
     # Get the background color (top-left pixel)
@@ -43,21 +43,25 @@ def fuzz_trim(image, fuzz_percent=10):
         # Compare each channel's value to determine if within the fuzz range
         return all(abs(pixel[i] - reference[i]) <= threshold for i in range(3))  # Ignore alpha channel
 
-    # Create a mask where non-background pixels are highlighted
-    mask = Image.new("1", image.size)  # Binary image (1 bit per pixel)
+    # Create a new image for the output
+    transparent_image = Image.new("RGBA", image.size, (255, 255, 255, 0))
+
+    # Iterate through each pixel and copy only non-background pixels
     for x in range(image.width):
         for y in range(image.height):
-            if not is_within_fuzz(image.getpixel((x, y)), bg_color, fuzz_threshold):
-                mask.putpixel((x, y), 1)  # Non-background pixels set to 1 (white in mask)
+            pixel = image.getpixel((x, y))
+            if not is_within_fuzz(pixel, bg_color, fuzz_threshold):
+                transparent_image.putpixel((x, y), pixel)  # Keep the original pixel
+            else:
+                transparent_image.putpixel((x, y), (255, 255, 255, 0))  # Make it transparent
 
-    # Find the bounding box of the mask
-    bbox = mask.getbbox()
+    # Find the bounding box of non-transparent areas
+    bbox = transparent_image.getbbox()
     if bbox:
-        # Crop the original image to this bounding box
-        image = image.crop(bbox)
+        # Crop the image to the bounding box
+        transparent_image = transparent_image.crop(bbox)
 
-    # Save the result
-    return image
+    return transparent_image
 
 with open(jsonFile, 'r') as file:
     data = json.load(file)
@@ -67,7 +71,7 @@ totalWidth = data["totalWidth"]
 shelfArray = data["shelfArray"]
 numOfRows = len(shelfArray)
 
-background = Image.new("RGB", (inchesToPixels(totalWidth), inchesToPixels(totalHeight)), (255, 255, 255))
+background = Image.new("RGBA", (inchesToPixels(totalWidth), inchesToPixels(totalHeight)), (255, 255, 255, 0))
 #background.show()
 
 currentPosition = (0,0)
