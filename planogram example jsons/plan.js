@@ -41,12 +41,61 @@ function createCanvas(width, height) {
 async function openImageFromURL(url) {
     try {
         const response = await axios({ url, responseType: "arraybuffer" });
-        return sharp(response.data); // Create a sharp image from the response data
+
+        // Create a sharp image
+        const image = sharp(response.data);
+
+        // Try to get metadata
+        let metadata;
+        try {
+            metadata = await image.metadata();
+        } catch (metaError) {
+            console.warn(`Unable to retrieve metadata for URL: ${url}`, metaError.message);
+            metadata = { width: null, height: null, channels: 3 }; // Fallback
+        }
+
+        // Validate metadata dimensions
+        const { width, height, channels } = metadata;
+        if (!width || !height) {
+            throw new Error("Invalid or unsupported image format.");
+        }
+
+        // Ensure 4 channels (RGBA)
+        const rgbaImage = image.ensureAlpha();
+
+        const { data } = await rgbaImage.raw().toBuffer({ resolveWithObject: true });
+        const expectedLength = width * height * 4;
+
+        if (data.length !== expectedLength) {
+            throw new Error(
+                `Buffer size mismatch: Expected ${expectedLength}, got ${data.length}.`
+            );
+        }
+
+        // Make white background transparent
+        const transparentData = Buffer.alloc(expectedLength);
+        for (let i = 0; i < data.length; i += 4) {
+            const [r, g, b, a] = [data[i], data[i + 1], data[i + 2], data[i + 3]];
+            const isWhite = r > 240 && g > 240 && b > 240; // Adjust threshold as needed
+            transparentData[i] = r; // Red
+            transparentData[i + 1] = g; // Green
+            transparentData[i + 2] = b; // Blue
+            transparentData[i + 3] = isWhite ? 0 : a; // Alpha
+        }
+
+        return sharp(transparentData, {
+            raw: {
+                width,
+                height,
+                channels: 4,
+            },
+        }).png();
     } catch (error) {
-        console.error(`Error loading image from URL: ${url}`, error.message);
+        console.error(`Error processing image from URL: ${url}`, error.message);
         return null;
     }
 }
+
 
 async function main() {
     const jsonFile = "sodaExample.json";
