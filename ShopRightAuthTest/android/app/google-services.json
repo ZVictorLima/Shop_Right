@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "486176896326",
+    "project_id": "auth-ec1d5",
+    "storage_bucket": "auth-ec1d5.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:486176896326:android:ccd5744e92846cede12147",
+        "android_client_info": {
+          "package_name": "com.shoprightauthtest"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "486176896326-a387ifbkkr5hbuo3ldju44oe0ebf37vc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.shoprightauthtest",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "486176896326-k76oablm42jdtdeoh29f7pri2psqldmb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBxHEwUPScNywub8OGB5RCs7SbnOggeVDg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "486176896326-k76oablm42jdtdeoh29f7pri2psqldmb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

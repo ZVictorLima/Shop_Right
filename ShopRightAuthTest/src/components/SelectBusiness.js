@@ -1,0 +1,1 @@
+// This page is meant to allow the user to select or add a business to the database
