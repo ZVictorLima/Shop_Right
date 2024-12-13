@@ -1,4 +1,3 @@
 # Stock Right
-An app that will help creating planograms using AR
-
+A mobile application capable of generating and displaying planograms in AR
 ![logo](PlanogramApp/assets/Logo/MainLogo.png)
