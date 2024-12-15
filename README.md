@@ -1,5 +1,5 @@
-<center><img src="PlanogramApp/assets/Logo/MainLogo.png" alt="Example Image" width="100"></center>
-Stock Right
+<img src="PlanogramApp/assets/Logo/MainLogo.png" alt="Example Image" width="150">
+Stock Right <br>
 A mobile application for generating and displaying planograms in AR
 
 
