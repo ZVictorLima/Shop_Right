@@ -1,6 +1,6 @@
-<img src="PlanogramApp/assets/Logo/MainLogo.png" alt="Example Image" width="200">
 Stock Right <br>
 A mobile application for generating and displaying planograms in AR
+<img src="PlanogramApp/assets/Logo/MainLogo.png" alt="Example Image" width="150">
 
 
 ---
