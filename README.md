@@ -1,4 +1,4 @@
-<img src="PlanogramApp/assets/Logo/MainLogo.png" alt="Example Image" width="200">
+<center><img src="PlanogramApp/assets/Logo/MainLogo.png" alt="Example Image" width="200"></center>
 
 A mobile application for generating and displaying planograms in AR
 
