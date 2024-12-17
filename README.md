@@ -1,4 +1,4 @@
-<img src="PlanogramApp/assets/Logo/MainLogo.png" alt="Example Image" width="175">
+<img src="PlanogramApp/assets/Logo/MainLogo.png" alt="Example Image" width="225">
 <h2>A mobile application for generating and displaying planograms in AR</h2>
 
 <div>
