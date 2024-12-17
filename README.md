@@ -1,6 +1,8 @@
 <img src="PlanogramApp/assets/Logo/MainLogo.png" alt="Example Image" width="175">
 A mobile application for generating and displaying planograms in AR
 
+---
+
 <div>
     <p>Standard Planogram: </p>
     <img src="/PlanogramApp/assets/ExamplePlanogram.png" width="300" alt="Existing Planogram">
